@@ -321,8 +321,8 @@ class Farm:
 						if len(lands)==0:
 								continue
 						else:
+								dogs = lands['dog']
 								lands = lands['farmlandStatus']
-
 						i=-1
 						for land in lands:#每块地
 								i+=1
@@ -355,7 +355,7 @@ class Farm:
 																stealed=u'已收'
 														elif land['m']==land['l']:
 																stealed=u'偷光'
-														elif self.autosteal: #偷
+														elif dogs['dogId']==0 or time.time()>dogs['dogUnWorkTime'] and self.autosteal : #偷
 																temp=self.steal(friend['userId'],i)
 																if not temp==None and temp.has_key('harvest'):
 																	stealed=u'偷得%d' % temp['harvest']
@@ -445,7 +445,8 @@ def scanMyFarm(farm):
 if __name__=='__main__':
 		import sys
 		if True:
-				sys.stdout=open('main.log','w')
+				pass
+#				sys.stdout=open('main.log','w')
 #				sys.stderr=open('main.err','w')
 		farm = Farm()
 #		farm.debug=True
