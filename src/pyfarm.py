@@ -2,7 +2,7 @@
 #encoding: utf-8
 #2009-8-21 升级后
 import urllib,urllib2,cookielib
-import time,zlib,re,md5
+import time,zlib,re,hashlib
 import cStringIO,gzip
 import json
 import pickle
@@ -50,7 +50,7 @@ class Farm:
 
 	def param(self): # build params farmKey and farmTime
 		farmTime=str(time.time())[0:10]
-		farmKey=md5.md5(farmTime+'15l3h4kh').hexdigest()
+		farmKey=hashlib.md5(farmTime+'15l3h4kh').hexdigest()
 		return (farmKey, farmTime)
 	def buySeed(self,n):
 		for i in range(n):
@@ -158,10 +158,10 @@ class Farm:
 		while True:
 			raw=self.req(url)
 			if len(raw)==0 or raw=='{code:"0"}':
+				print 'List Friend Failed %s' % raw
 				continue
 			else:
 				break
-		print raw
 		self.friends=json.read(raw)['data']
 	# 获取某好友信息
 	def showFriend(self,fid):
@@ -362,6 +362,7 @@ class Farm:
 							elif land['m']==land['l']:
 								stealed=u'偷光'
 							elif dogs['dogId']==0 or time.time()>dogs['dogUnWorkTime'] and self.autosteal : #偷
+							elif self.autosteal:
 								temp=self.steal(friend['userId'],i)
 								if not temp==None and temp.has_key('harvest'):
 									stealed=u'偷得%d' % temp['harvest']
@@ -371,6 +372,9 @@ class Farm:
 									print temp
 									self.listFriends()
 									return
+							else:
+							    	stealed=u'Strange'
+
 					else: #未成熟
 						if (durtime-int(time.time())) < interval:#开新线程偷
 							print 'set Thread %s' % time.ctime(durtime)
@@ -441,8 +445,7 @@ def threadSteal(farm, T, fid, place):
 		print u'Thread 偷得 %d at %s:%d'.encode('utf-8') % (temp['harvest'],fid,place)
 	else:
 		print u'Thread Failed %s at %s:%d'.encode('utf-8') % (temp,fid,place)
-def scanMyFarm(farm):
-	interval=20*60
+def scanMyFarm(farm,interval=20*60):
 	while True:
 		farm.myfarm(interval)
 		print 'my farm scan Sleeping %s ' % time.ctime()
@@ -459,7 +462,7 @@ if __name__=='__main__':
 	print 'Login...'
 	#friend farm
 	while True:
-#		try:
+		try:
 			if True:
 				print u'请输入校内网用户邮箱:'.encode('utf-8')
 				email=sys.stdin.readline()
@@ -477,6 +480,6 @@ if __name__=='__main__':
 				print u'%s等待下次运行:%d分钟后'.encode('utf-8') % (time.ctime(),interval/60)
 				sys.stdout.flush()
 				time.sleep(interval)
-#		except:
+		except:
 			continue
 
