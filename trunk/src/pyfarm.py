@@ -152,8 +152,12 @@ class Farm:
 				else:
 					curpage+=1
 					print 'Page:%d' % curpage
-	# 获取所有好友
 	def listFriends(self):
+		url='http://friend.renren.com/myfriendlistx.do'
+		self.friends=json.read(re.findall(' friends=(.+)\;',self.req(url))[0])
+
+	# 获取所有好友
+	def listFriendsOld(self):
 		url="http://xn.hf.fminutes.com/api.php?mod=friend&farmKey=%s&farmTime=%s&inuId=" % self.param()
 		while True:
 			raw=self.req(url)
@@ -162,7 +166,9 @@ class Farm:
 				continue
 			else:
 				break
-		self.friends=json.read(raw)['data']
+
+#		self.friends=json.read(raw)['data']
+		return raw
 	# 获取某好友信息
 	def showFriend(self,fid):
 		url='http://xn.hf.fminutes.com/api.php?mod=user&act=run&flag=1&farmKey=%s&farmTime=%s&inuId=' % self.param()
@@ -322,10 +328,12 @@ class Farm:
 		ret={} #下次运行时间
 		
 		for friend in self.friends:
-			print (time.ctime()+friend['userName']).encode('utf-8')
-			lands=self.showFriend(friend['userId'])
+			print (time.ctime()+friend['name']).encode('utf-8')
+			lands=self.showFriend(friend['id'])
 			if len(lands)==0:
 				continue
+		        elif not lands.has_key('dog'):
+                                continue
 			else:
 				dogs = lands['dog']
 				lands = lands['farmlandStatus']
@@ -338,7 +346,7 @@ class Farm:
 				else:#不是空地
 					durtime=land['q']+int(s[0]['growthCycle'])
 					if durtime < time.time(): #已经成熟
-						if friend['userId']==self.uid: #自己的地，收获
+						if friend['id']==self.uid: #自己的地，收获
 							if land['b']==6: #成熟
 								self.harvest(i)
 								stealed=u'收获'
@@ -361,9 +369,10 @@ class Farm:
 								stealed=u'已收'
 							elif land['m']==land['l']:
 								stealed=u'偷光'
-							elif dogs['dogId']==0 or time.time()>dogs['dogUnWorkTime'] and self.autosteal : #偷
+#							elif dogs['dogId']==0 or time.time()>dogs['dogUnWorkTime'] and self.autosteal : #偷
+#							    pass
 							elif self.autosteal:
-								temp=self.steal(friend['userId'],i)
+								temp=self.steal(friend['id'],i)
 								if not temp==None and temp.has_key('harvest'):
 									stealed=u'偷得%d' % temp['harvest']
 								elif temp['direction']=='':
@@ -378,36 +387,36 @@ class Farm:
 					else: #未成熟
 						if (durtime-int(time.time())) < interval:#开新线程偷
 							print 'set Thread %s' % time.ctime(durtime)
-							if friend['userId']==self.uid:
+							if friend['id']==self.uid:
 								temp = -1
 							else:
-								temp = friend['userId']
+								temp = friend['id']
 							thread.start_new_thread(threadSteal,
 									(self,durtime,temp,i))
-						if not ret.has_key(friend['userId']) or ret[friend['userId']] > durtime:
-							ret[friend['userId']]=durtime
+						if not ret.has_key(friend['id']) or ret[friend['id']] > durtime:
+							ret[friend['id']]=durtime
 						stealed=time.ctime(durtime)
 					if land['f'] > 0:
 						weed=str(land['f'])+u'草,已除'
 						while self.autoweed and land['f']>0:
-							self.clearWeed(friend['userId'],i)
+							self.clearWeed(friend['id'],i)
 							land['f']-=1
 					else:
 						weed=''
 					if land['h']==0:
 						han=u'干旱,已浇水'
 						if self.autowater:
-							self.water(friend['userId'],i)
+							self.water(friend['id'],i)
 					else:
 						han=''
 					if land['t']>0 or land['g']>0:
 						if self.autonorm:
 							while land['g']>0: #杀小虫
-								self.spraying(friend['userId'],i)
+								self.spraying(friend['id'],i)
 								land['g']-=1
 								norm=u'捉虫1'
 							if land['t'] > 0:  #杀大虫
-								self.spraying(friend['userId'],i)
+								self.spraying(friend['id'],i)
 								norm=u'杀虫1/%d' % land['t']
 					else:
 						norm=''
