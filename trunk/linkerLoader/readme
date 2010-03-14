@@ -1,0 +1,6 @@
+cc ss.c
+objdump -h ss.o
+size ss.o
+objdump -s -d ss.o
+readelf -r loc.so
+readelf -S loc.so
