@@ -1,0 +1,174 @@
+
+loc.so:     file format elf32-i386
+
+
+Disassembly of section .init:
+
+00000334 <_init>:
+ 334:	55                   	push   %ebp
+ 335:	89 e5                	mov    %esp,%ebp
+ 337:	53                   	push   %ebx
+ 338:	83 ec 04             	sub    $0x4,%esp
+ 33b:	e8 00 00 00 00       	call   340 <_init+0xc>
+ 340:	5b                   	pop    %ebx
+ 341:	81 c3 b4 1c 00 00    	add    $0x1cb4,%ebx
+ 347:	8b 93 f4 ff ff ff    	mov    -0xc(%ebx),%edx
+ 34d:	85 d2                	test   %edx,%edx
+ 34f:	74 05                	je     356 <_init+0x22>
+ 351:	e8 1e 00 00 00       	call   374 <__gmon_start__@plt>
+ 356:	e8 c5 00 00 00       	call   420 <frame_dummy>
+ 35b:	e8 30 01 00 00       	call   490 <__do_global_ctors_aux>
+ 360:	58                   	pop    %eax
+ 361:	5b                   	pop    %ebx
+ 362:	c9                   	leave  
+ 363:	c3                   	ret    
+
+Disassembly of section .plt:
+
+00000364 <__gmon_start__@plt-0x10>:
+ 364:	ff b3 04 00 00 00    	pushl  0x4(%ebx)
+ 36a:	ff a3 08 00 00 00    	jmp    *0x8(%ebx)
+ 370:	00 00                	add    %al,(%eax)
+	...
+
+00000374 <__gmon_start__@plt>:
+ 374:	ff a3 0c 00 00 00    	jmp    *0xc(%ebx)
+ 37a:	68 00 00 00 00       	push   $0x0
+ 37f:	e9 e0 ff ff ff       	jmp    364 <_init+0x30>
+
+00000384 <__cxa_finalize@plt>:
+ 384:	ff a3 10 00 00 00    	jmp    *0x10(%ebx)
+ 38a:	68 08 00 00 00       	push   $0x8
+ 38f:	e9 d0 ff ff ff       	jmp    364 <_init+0x30>
+
+Disassembly of section .text:
+
+000003a0 <__do_global_dtors_aux>:
+ 3a0:	55                   	push   %ebp
+ 3a1:	89 e5                	mov    %esp,%ebp
+ 3a3:	56                   	push   %esi
+ 3a4:	53                   	push   %ebx
+ 3a5:	e8 ad 00 00 00       	call   457 <__i686.get_pc_thunk.bx>
+ 3aa:	81 c3 4a 1c 00 00    	add    $0x1c4a,%ebx
+ 3b0:	83 ec 10             	sub    $0x10,%esp
+ 3b3:	80 bb 18 00 00 00 00 	cmpb   $0x0,0x18(%ebx)
+ 3ba:	75 5d                	jne    419 <__do_global_dtors_aux+0x79>
+ 3bc:	8b 83 fc ff ff ff    	mov    -0x4(%ebx),%eax
+ 3c2:	85 c0                	test   %eax,%eax
+ 3c4:	74 0e                	je     3d4 <__do_global_dtors_aux+0x34>
+ 3c6:	8b 83 14 00 00 00    	mov    0x14(%ebx),%eax
+ 3cc:	89 04 24             	mov    %eax,(%esp)
+ 3cf:	e8 b0 ff ff ff       	call   384 <__cxa_finalize@plt>
+ 3d4:	8b 8b 1c 00 00 00    	mov    0x1c(%ebx),%ecx
+ 3da:	8d 83 1c ff ff ff    	lea    -0xe4(%ebx),%eax
+ 3e0:	8d 93 18 ff ff ff    	lea    -0xe8(%ebx),%edx
+ 3e6:	29 d0                	sub    %edx,%eax
+ 3e8:	c1 f8 02             	sar    $0x2,%eax
+ 3eb:	8d 70 ff             	lea    -0x1(%eax),%esi
+ 3ee:	39 f1                	cmp    %esi,%ecx
+ 3f0:	73 20                	jae    412 <__do_global_dtors_aux+0x72>
+ 3f2:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 3f8:	8d 41 01             	lea    0x1(%ecx),%eax
+ 3fb:	89 83 1c 00 00 00    	mov    %eax,0x1c(%ebx)
+ 401:	ff 94 83 18 ff ff ff 	call   *-0xe8(%ebx,%eax,4)
+ 408:	8b 8b 1c 00 00 00    	mov    0x1c(%ebx),%ecx
+ 40e:	39 f1                	cmp    %esi,%ecx
+ 410:	72 e6                	jb     3f8 <__do_global_dtors_aux+0x58>
+ 412:	c6 83 18 00 00 00 01 	movb   $0x1,0x18(%ebx)
+ 419:	83 c4 10             	add    $0x10,%esp
+ 41c:	5b                   	pop    %ebx
+ 41d:	5e                   	pop    %esi
+ 41e:	5d                   	pop    %ebp
+ 41f:	c3                   	ret    
+
+00000420 <frame_dummy>:
+ 420:	55                   	push   %ebp
+ 421:	89 e5                	mov    %esp,%ebp
+ 423:	53                   	push   %ebx
+ 424:	e8 2e 00 00 00       	call   457 <__i686.get_pc_thunk.bx>
+ 429:	81 c3 cb 1b 00 00    	add    $0x1bcb,%ebx
+ 42f:	83 ec 04             	sub    $0x4,%esp
+ 432:	8b 93 20 ff ff ff    	mov    -0xe0(%ebx),%edx
+ 438:	85 d2                	test   %edx,%edx
+ 43a:	74 15                	je     451 <frame_dummy+0x31>
+ 43c:	8b 93 f8 ff ff ff    	mov    -0x8(%ebx),%edx
+ 442:	85 d2                	test   %edx,%edx
+ 444:	74 0b                	je     451 <frame_dummy+0x31>
+ 446:	8d 83 20 ff ff ff    	lea    -0xe0(%ebx),%eax
+ 44c:	89 04 24             	mov    %eax,(%esp)
+ 44f:	ff d2                	call   *%edx
+ 451:	83 c4 04             	add    $0x4,%esp
+ 454:	5b                   	pop    %ebx
+ 455:	5d                   	pop    %ebp
+ 456:	c3                   	ret    
+
+00000457 <__i686.get_pc_thunk.bx>:
+ 457:	8b 1c 24             	mov    (%esp),%ebx
+ 45a:	c3                   	ret    
+ 45b:	90                   	nop    
+
+0000045c <bar>:
+ 45c:	55                   	push   %ebp
+ 45d:	89 e5                	mov    %esp,%ebp
+ 45f:	c7 05 14 20 00 00 01 	movl   $0x1,0x2014
+ 466:	00 00 00 
+ 469:	c7 05 00 00 00 00 02 	movl   $0x2,0x0
+ 470:	00 00 00 
+ 473:	5d                   	pop    %ebp
+ 474:	c3                   	ret    
+
+00000475 <foo>:
+ 475:	55                   	push   %ebp
+ 476:	89 e5                	mov    %esp,%ebp
+ 478:	83 ec 08             	sub    $0x8,%esp
+ 47b:	e8 fc ff ff ff       	call   47c <foo+0x7>
+ 480:	e8 fc ff ff ff       	call   481 <foo+0xc>
+ 485:	c9                   	leave  
+ 486:	c3                   	ret    
+ 487:	90                   	nop    
+ 488:	90                   	nop    
+ 489:	90                   	nop    
+ 48a:	90                   	nop    
+ 48b:	90                   	nop    
+ 48c:	90                   	nop    
+ 48d:	90                   	nop    
+ 48e:	90                   	nop    
+ 48f:	90                   	nop    
+
+00000490 <__do_global_ctors_aux>:
+ 490:	55                   	push   %ebp
+ 491:	89 e5                	mov    %esp,%ebp
+ 493:	56                   	push   %esi
+ 494:	53                   	push   %ebx
+ 495:	e8 bd ff ff ff       	call   457 <__i686.get_pc_thunk.bx>
+ 49a:	81 c3 5a 1b 00 00    	add    $0x1b5a,%ebx
+ 4a0:	8b 83 10 ff ff ff    	mov    -0xf0(%ebx),%eax
+ 4a6:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 4a9:	74 19                	je     4c4 <__do_global_ctors_aux+0x34>
+ 4ab:	8d b3 10 ff ff ff    	lea    -0xf0(%ebx),%esi
+ 4b1:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+ 4b8:	83 ee 04             	sub    $0x4,%esi
+ 4bb:	ff d0                	call   *%eax
+ 4bd:	8b 06                	mov    (%esi),%eax
+ 4bf:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 4c2:	75 f4                	jne    4b8 <__do_global_ctors_aux+0x28>
+ 4c4:	5b                   	pop    %ebx
+ 4c5:	5e                   	pop    %esi
+ 4c6:	5d                   	pop    %ebp
+ 4c7:	c3                   	ret    
+
+Disassembly of section .fini:
+
+000004c8 <_fini>:
+ 4c8:	55                   	push   %ebp
+ 4c9:	89 e5                	mov    %esp,%ebp
+ 4cb:	53                   	push   %ebx
+ 4cc:	83 ec 04             	sub    $0x4,%esp
+ 4cf:	e8 00 00 00 00       	call   4d4 <_fini+0xc>
+ 4d4:	5b                   	pop    %ebx
+ 4d5:	81 c3 20 1b 00 00    	add    $0x1b20,%ebx
+ 4db:	e8 c0 fe ff ff       	call   3a0 <__do_global_dtors_aux>
+ 4e0:	59                   	pop    %ecx
+ 4e1:	5b                   	pop    %ebx
+ 4e2:	c9                   	leave  
+ 4e3:	c3                   	ret    
