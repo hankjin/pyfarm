@@ -1,0 +1,27 @@
+#!/bin/bash
+# $1:  fetion_account
+# $2:  message
+# 插件说明：
+# 当有新的消息到来时，系统将调用此插件:
+# 调用的第一个参数:飞信账号
+# 调用的第二个参数：消息
+
+buddy=$1
+message=$2
+
+# 下面只是简单的演示，加上内容后发回去
+
+if [ "$message" = "A" ];then
+	sendback="您输入的指令是A。飞信机器人功能强大，想了解吗？您到官方网站http://www.it-adv.net/看看吧;)"
+elif [ "$message" = "B" ];then
+	sendback="您输入的指令是B。插件开发说明请到官方网站http://www.it-adv.net/查看;)"
+elif [ "$message" = "C" ];then
+	sendback="您输入的指令是C。发送命令直接到UDP40000+N(N>=0)端口，与您的程序集成更方便;)"
+elif [ "$message" = "D" ];then
+	sendback="您输入的指令是D。通过程序内置的HTTP服务器(http://localhost:40000/)，您能查询信息或者WEB交互"
+else
+	sendback="您发的消息是：$message。我不懂啥意思呀。目前机器人还很笨噢;)您如果会开发，赶快教我更多知识吧:)"
+fi
+
+cmd="chat $buddy $sendback"
+echo $cmd

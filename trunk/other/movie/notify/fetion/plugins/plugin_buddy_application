@@ -1,0 +1,16 @@
+#!/bin/bash
+# $1:  本人飞信账号
+# $2:  请求人飞信账号
+# 插件说明：
+# 当对方申请加为好友时，激活此插件
+me=$1
+buddy=$2
+
+result="reject" # 默认拒绝所有人的加入邀请
+if [ "$buddy" = "1234558" ];then
+	result="reject" # 飞信账号1234558拒绝加入
+else
+	result="accept" # 其他账号允许
+fi
+
+echo $result

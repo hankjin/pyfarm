@@ -1,0 +1,11 @@
+mysql设置utf-8编码
+sudo vi /etc/mysql/my.cnf 加入三个utf8
+[client]
+port            = 3306
+socket          = /var/run/mysqld/mysqld.sock
+default-character-set=utf8
+[mysqld]
+default-character-set = utf8
+init_connect='SET NAMES utf8'
+
+sudo /etc/init.d/mysql restart

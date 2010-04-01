@@ -1,0 +1,15 @@
+#!/bin/bash
+# $1:  xxxxxx
+# 插件说明：
+# 当双击打开对话窗口时，系统将调用此插件，调用的第一个参数为：
+# xxxxxx: 对方飞信号或者对方手机号
+buddy=$1
+
+#该插件自动发送演示信息
+
+message="<Font Face='仿宋' Color='-8388608' Size='12'>我是飞信机器人(LINUX),以下信息仅为演示。</Font>\\n<Font Face='楷体' Color='-16744320' Size='10.5'><U>[A]关于飞信机器人\\n[B]插件开发指南\\n[C]UDP SOCKET接口使用\\n[D]HTTP服务\\n</U></FONT><Font Face='仿宋' Color='-8388608' Size='10.5'>飞信机器人是国内第一款专门为自动化监控设计的第三方飞信产品，可以广泛应用于机房管理、网站集成、企业办公自动化等各个领域。更多信息，请浏览官方网站:http://www.it-adv.net/\\n发个指令［ABCD］试试看吧！</FONT>"
+
+cmd="chat $buddy $message"
+
+# 最后，请以 回车结束
+echo $cmd

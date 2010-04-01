@@ -1,0 +1,310 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="all,follow" />
+
+		<meta name="Keywords" content="飞信,FETION,IM,机器人,免费短信,LINUX,企业管理,监测,报警,通知,命令行工具" />
+		<meta name="Description" content="基于FETION飞信协议的短信机器人、飞信机器人、命令行工具,适用于企业管理，自动化控制" />
+
+		<link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
+		<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="css/main-msie.css" /><![endif]-->
+		<link rel="stylesheet" media="screen,projection" type="text/css" href="css/scheme.css" />
+		<link rel="stylesheet" media="print" type="text/css" href="css/print.css" />
+
+		<style>
+		#comming_msg{
+			border-left:1px solid #000;
+			border-top:1px solid #000;
+			border-right:1px solid #fff;
+			border-bottom:1px solid #fff;
+			background-color:#aaa;
+			width:230px;
+			height:200px;
+			overflow:auto;
+			padding:4px;
+			text-align:left;
+			}		
+		</style>
+		<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
+
+		<title>飞信机器人－适用于企业管理,自动化控制的免费短信解决方案／打造属于自己的飞信机器人</title>
+
+		<script>
+			Date.prototype.toFormatString=function() 
+			{ 
+					var   strMonth=(this.getMonth()+parseInt(1)).toString(); 
+					strMonth=(strMonth.length==1)?( "0"+strMonth):strMonth;
+					var   strDate=this.getDate().toString(); 
+					strDate=(strDate.length==1)?( "0"+strDate):strDate; 
+					var   strHour=this.getHours().toString(); 
+					strHour=(strHour.length==1)?( "0"+strHour):strHour; 
+					var   strMin=this.getMinutes().toString(); 
+					strMin=(strMin.length==1)?( "0"+strMin):strMin;
+					var   strSen=this.getSeconds().toString(); 
+					strSen=(strSen.length==1)?( "0"+strSen):strSen; 
+					//return   this.getFullYear()+ "- "+strMonth+ "- "+strDate+ "   "+strHour+ ": "+strMin+ ": "+strSen 
+					return strHour+":"+strMin+":"+strSen;
+			} 
+		
+			function add_contact(buddy)
+			{
+				nickname = buddy.children("nickname").text();
+				fetion_no = buddy.children("fetion_no").text();
+				mobile_no = buddy.children("mobile_no").text();
+				name_ = buddy.children("name").text();
+				local_name = buddy.children("local_name").text();
+				var title=nickname;
+				if(title=="")title=name_;
+				if(title=="")title=local_name;
+				if(title=="")title=fetion_no;
+				if(title=="")title=mobile_no;
+
+				$('<option></option>').attr('value',fetion_no==""?mobile_no:fetion_no).html(title).appendTo('#buddylist');
+			}
+
+			function specialcharsback(str)
+			{
+			  str=str.replace(/&#039;/g,"'");  
+			  str=str.replace(/&quot;/g,"\"");
+			  str=str.replace(/&lt;/g,"<");
+			  str=str.replace(/&gt;/g,">");
+			  str=str.replace(/&amp;/g,"&");
+			  return str;
+			}
+
+			function incomming_message(message)
+			{
+				fetion_no = message.children("fetion_no").text();
+				mobile_no = message.children("mobile_no").text();
+				msg_content = specialcharsback(message.children("content").text());
+				msg_time = message.children("time").text();
+				msg_type = message.children("type").text();
+				
+				var da = new Date(msg_time*1000);
+				new_msg = "<font color=green>["+da.toFormatString()+"]"+fetion_no+"</font>:"+msg_content+"";
+				$('#comming_msg').html(new_msg+"<BR/>"+document.getElementById('comming_msg').innerHTML);
+				$("#buddylist").attr('value',fetion_no);
+			}
+			
+			function get_unread_message()
+			{
+				$.ajax({
+					url:'/API/message/get?rand='+Math.random(),
+					error:function(xhr){
+						$('#txt_error').html('<font color=red>Ajax request Error</font>');
+					},
+					success:function(response){
+						$(response).find('message').each(function(){
+							incomming_message($(this));
+						});
+					}
+				}
+				);			
+				setTimeout(get_unread_message, 2000);
+			}
+			
+			function load_contacts()
+			{
+				$.ajax({
+					url:'/API/buddy/list?rand='+Math.random(),
+					error:function(xhr){
+						$('#txt_error').html('<font color=red>Ajax request Error</font>');
+					},
+					success:function(response){
+						$(response).find('buddy').each(function(){
+							add_contact($(this));
+							$('#txt_error').html('');
+						});
+						get_unread_message();
+					}
+				}
+				);
+			}
+			var first=true;
+			function load_service_status()
+			{
+				$.ajax({
+					url:'/API/service/status?rand='+Math.random(),
+					error:function(xhr){
+						$('#txt_error').html('<font color=red>Ajax request Error</font>');
+					},
+					success:function(response){
+						var login=0;
+						$(response).find('runtime').each(function(){
+							$('#server_runtime').html($(this).text());
+						});
+						$(response).find('login').each(function(){
+							$('#server_login').html($(this).text());
+							login = $(this).text();
+						});
+						$(response).find('message').each(function(){
+							$('#server_message').html($(this).text());
+						});
+						$(response).find('send_sms_count').each(function(){
+							$('#sms_count').html($(this).text());
+						});
+						$(response).find('version').each(function(){
+							$('#version').html($(this).text());
+						});
+
+						if(first && login-5==0){load_contacts();first=false;}
+						setTimeout(load_service_status, 2000);
+					}
+				});
+			}
+
+			function send_sms()
+			{
+				//alert($("#buddylist option[@selected]").text());
+				var dest = $("#buddylist option[@selected]").attr('value');
+				var msg = $("#txt_message").attr('value');
+				msg = encodeURI(msg);
+				$.ajax({
+					url:'/API/buddy/sms/'+dest+'/'+msg+"?rand="+Math.random(),
+					error:function(xhr){
+						alert('Ajax request Error');
+					},
+					success:function(response){
+						$(response).find('error_message').each(function(){
+							alert($(this).text());
+						});
+					}
+				});
+			}
+			
+			function send_online_msg()
+			{
+				//alert($("#buddylist option[@selected]").text());
+				var dest = $("#buddylist option[@selected]").attr('value');
+				var msg = $("#txt_message").attr('value');
+				var encoded_msg = encodeURI(msg);
+				$.ajax({
+					url:'/API/buddy/chat/'+dest+'/'+encoded_msg+"?rand="+Math.random(),
+					error:function(xhr){
+						alert('Ajax request Error');
+					},
+					success:function(response){
+						$(response).find('error_message').each(function(){
+							//alert($(this).text());
+							var da = new Date();
+							new_msg = "<font color=blue>["+da.toFormatString()+"]</font>:"+msg+"";
+							$('#comming_msg').html(new_msg+"<BR/>"+document.getElementById('comming_msg').innerHTML);
+							$("#txt_message").attr('value','');
+						});
+					}
+				});
+			}		
+			$(document).ready(load_service_status);
+			
+		</script>
+	</head>
+	<body>
+
+		<div id="main">
+			<!-- Header -->
+			<div id="header" class="box"><font color="red">飞信趣味应用QQ群：61920149<br/>&nbsp;&nbsp;MiniWebServer By <a href="http://www.it-adv.net/">it-adv.net</a><br/></font>
+				<h3 id="logo"><a href="http://www.it-adv.net/"><span>飞信机器人</span>FetionRobot</a></h3>
+			</div>
+			<!-- /header -->
+
+			<!-- 2 columns (content + sidebar) -->
+			<div id="cols" class="box">
+				<!-- Main content -->
+				<div id="content">
+					<!-- Your slogan -->
+					<!-- /slogan -->
+					<hr class="noscreen" />
+					<div id="content-in">
+						<br/>
+						<p><font color=red size="+2">飞信机器人是<b>国内第一款面向企业应用</b>的第三方飞信产品:</font><br/><br/>
+						1、高效CLI（命令行）操作方式<br/>
+						2、高效C＋＋语言开发<br/>
+						3、跨平台应用（X86下LINUX／WINDOWS，其它平台请联系定制服务）<br/>
+						4、插件支持，完全开放的插件接口，用户通过重写插件，可以实现自己的应用<br/>
+						5、支持批处理运行<br/>
+						6、支持SOCKET调用（查看socket_interface/demo）下代码<br/>
+						7、内部集成小型WEB服务器，支持WEB状态查询及交互<br/>
+						8、<font color=red>个人、非赢利性组织应用完全免费（商业应用、二次开发后捆绑发布，请购买商业授权）</font><br/>
+<br/>
+当然，除了面向企业应用外。它也是一款很不错的飞信聊天工具。您在LINUX下，完全可以用它来实现飞信交流。<br/>
+						<br/>
+				
+						<p><font color=red size="+2">欢迎注册成为<b>VIP</b>用户,获得VIP用户权利的方法：</font><br/><br/>
+						1、提交软件使用报告(包括软件、硬件环境，应用及扩展的功能，应用后减少的企业成本等)，并授权发表在it-adv.net成功案例中；<br/>
+						2、如果您有网站，也可以把http://www.it-adv.net/加入到友情连接；<br/>
+						3、其他贡献，如提供BUG报告，提供测试账号等<br/>
+						任意一种均可，完成后，请把手机号或者飞信号告之<br/>
+
+						<br/>
+
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						</p>
+					</div> <!-- /content-in -->                
+				</div> <!-- /content -->
+
+				<hr class="noscreen" />
+
+				<!-- Sidebar -->
+				<div id="aside">
+					<div id="aside-in">
+					
+					<div id="msg_area">
+					<div id="comming_msg"></div>
+					<div><a id="msg_end" name="1" href="#1">&nbsp</a></div>
+					</div>
+						
+						<select id="buddylist" style="width:160px;"></select>&nbsp;好友列表
+						<textarea id="txt_message" rows="5"></textarea><br/>
+						<input type="button" title="" value="SMS" id="btn_send" onclick="send_sms();">
+						<input type="button" title="" value="在线消息" id="btn_send" onclick="send_online_msg();">
+						<br/>
+						
+			
+						<ul id="mainnav">
+							<li id="nav-active"><a title="WEB接口演示" href="">WEB接口演示</a></li>
+							<li ><a title="" href="/API/buddy/list" target="_BLANK">1.好友列表XML</a></li>
+							<li ><a title="" href="/API/service/status" target="_BLANK">2.服务状态查询XML</a></li>
+							<li ><a title="" href="/API/message/get" target="_BLANK">3.未读信息查询XML</a></li>
+							<li ><a title="" href="">更多接口开发中...</a></li>
+						</ul>
+						<a href="http://www.it-adv.net/" style="padding-left:20px;">官方网站</a>
+						<br/><br/>
+						<div id="api_content" style="border:1px solid gray;margin:10px;padding:5px;">
+							服务运行时间:<span id="server_runtime"></span>秒
+							<br/>
+							成功发送短信:<span id="sms_count"></span>条
+							<br/>
+							版本:<span id="version"></span>
+							<br/>
+							登录状态:<span id="server_login"></span>
+							<br/>
+							<span id="server_message"></span><br/>
+							<span id="txt_error"></span>
+						</div>
+					</div> <!-- /aside-in -->
+				</div> <!-- /aside -->
+			</div> <!-- /cols -->
+
+
+			<hr class="noscreen" />
+
+			<!-- Footer -->
+			<div id="footer">
+
+
+				<p>联系EMAIL:<a href="mailto:shichangguo@msn.com">shichangguo@msn.com</a>&nbsp;MSN:shichangguo@msn.com&nbsp;QQ:191848423<br>
+				Copyright &copy; 2008 FetionRobot Studio. All Rights Reserved. 版权声明  &copy; 2008 飞信机器人工作室 版权所有</p>
+
+			</div> <!-- /footer -->
+
+		</div> <!-- /main -->
+
+	</body>
+</html>
+
+

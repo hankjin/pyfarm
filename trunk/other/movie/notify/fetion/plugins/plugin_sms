@@ -1,0 +1,9 @@
+#!/bin/bash
+# sms 命令后执行
+# $1: main account,  9876543210 for test
+# $2: dest
+# $3: server response
+# $4: message
+
+echo $1 $2 $3 $4 >> sms.txt
+

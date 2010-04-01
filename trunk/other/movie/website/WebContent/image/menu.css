@@ -1,0 +1,89 @@
+A:link
+{
+    COLOR: #000000
+}
+A:visited
+{
+    COLOR: #000000
+}
+A:hover
+{
+    COLOR: blue;
+	font-style: bold;
+}
+A:active
+{
+    COLOR: red
+}
+
+A.bottom:link
+{
+    COLOR: #ffffff
+}
+A.bottom:visited
+{
+    COLOR: #ffffff
+}
+A.bottom:hover
+{
+    COLOR: #ffff00
+}
+A.bottom:active
+{
+    COLOR: #FFFFFF
+}
+
+BODY
+{
+    SCROLLBAR-FACE-COLOR: #f6f6f6;
+    FONT-SIZE: 12pt;
+    BACKGROUND: #CCCCCC center 50%;
+    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+    SCROLLBAR-SHADOW-COLOR: #cccccc;
+    SCROLLBAR-3DLIGHT-COLOR: #cccccc;
+    SCROLLBAR-ARROW-COLOR: #330000;
+    SCROLLBAR-TRACK-COLOR: #f6f6f6;
+    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+TH
+{
+    FONT-SIZE: 12pt;
+    LINE-HEIGHT: 150%;
+    FONT-FAMILY: ËÎÌו;
+	background-color: #f2FF00;
+}
+TD
+{
+    FONT-SIZE: 12pt;
+    LINE-HEIGHT: 150%;
+    FONT-FAMILY: ËÎÌו;
+	background-color: #f2f2f2;
+}
+INPUT
+{
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #666666 1px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #666666 1px solid;
+    COLOR: #666666;
+    BORDER-BOTTOM: #666666 1px solid;
+    HEIGHT: 18px;
+    BACKGROUND-COLOR: #ffffff
+}
+BUTTON
+{
+    FONT-SIZE: 9pt;
+    HEIGHT: 20px
+}
+SELECT
+{
+    FONT-SIZE: 9pt;
+    HEIGHT: 20px
+}
+
+.menubody
+{
+    BACKGROUND-COLOR: #ffffff
+}
+

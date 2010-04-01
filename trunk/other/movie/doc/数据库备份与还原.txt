@@ -1,0 +1,6 @@
+备份
+mysqldump -umovie -peivom123 movie>db.sql
+还原
+mysqladmin -umovie -peivom123 drop movie
+mysqladmin -umovie -peivom123 create movie
+mysql -umovie -peivom123 movie<db.sql

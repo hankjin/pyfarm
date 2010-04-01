@@ -1,0 +1,600 @@
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
+Traceback (most recent call last):
+  File "/home/movie/cron/movie.py", line 6, in <module>
+    cur.execute("select user.email email, user.phone reminder.content from reminder,user where reminder.user=user.id and reminder.status='A'");
+  File "/var/lib/python-support/python2.5/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/var/lib/python-support/python2.5/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.content from reminder,user where reminder.user=user.id and reminder.status='A'' at line 1")
