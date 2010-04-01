@@ -1,0 +1,21 @@
+#!/bin/bash
+# 插件说明：
+# 系统每10秒钟调用此插件一次，调用的第一个参数为调用总次数
+# 演示：每隔10秒，改变一次心情
+
+tick=$1
+res=`expr $tick % 4`
+
+tip=""
+if [ $res -eq 0 ];then
+	tip="我是飞信机器人:)您知道吗？您可以改写plugins目录下的插件定制功能,http://www.it-adv.net/"
+elif [ $res -eq 1 ];then
+	tip="我是飞信机器人:-d您知道吗？您的程序可以向UDP默认端口40000发送指令，直接执行,http://www.it-adv.net/"
+elif [ $res -eq 2 ];then
+	tip="我是飞信机器人:(您知道吗？您可以打开浏览器，输入http://localhost:40000,看看发生了什么！？,http://www.it-adv.net/"
+else
+	tip="我是飞信机器人;)您知道吗？使用飞信机器人，您可以很快把您的产品与免费短信进行集成噢。http://www.it-adv.net/"
+fi
+echo "myinfo impresa $tip"
+
+

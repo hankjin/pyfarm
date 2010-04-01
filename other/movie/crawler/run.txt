@@ -1,0 +1,10 @@
+1. mysql
+truncate movie;
+truncate movieinfo;
+truncate comment;
+2. python
+python getinfo.py
+3. python get image
+python cinemaimg.py
+4. python
+python final.py

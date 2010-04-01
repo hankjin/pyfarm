@@ -1,0 +1,1 @@
+*/30 * * * * /home/cbib/news/news.py>>/home/cbib/news/news.log 2>>/home/cbib/news/news.log

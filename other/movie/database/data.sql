@@ -1,0 +1,30 @@
+insert into cinema(name,address,introduce,environment,zone) values ('武汉环银电影城','汉口解放大道686号世贸广场8楼430032',' 武汉环银电影城是武汉市首家位于大型商场内部的影院。其总投资超过二千万元，共设有5个国际标准的放映厅，近1000个座位。','http://img2.mtime.com/ti/d/2007/36/200794173359.58331965_500.jpg','汉口');
+insert into cinema(name,address,introduce,environment,zone) values ('湖北鑫乐银兴电影城','武汉市汉口沿江大道169号430014','在汉口沿江大道169号，座落着鑫乐银兴影城．在沿途一派老式建筑中，它的出现，无疑是为“汉口江滩”增添了一道风景．由英国人设计的鑫乐银兴电影城，是中国城市影院第一次革命的引领者，是中国最早的城市现代化、多功能、多厅，数码技术影城之一','http://img2.mtime.com/ti/d/2007/47/2007112115298.68169379_500.jpg','汉口');
+insert into cinema(name,address,introduce,environment,zone) values ('武汉中影天河国际影城','武汉市光谷步行街C区3楼430075','中影天河国际影城位于武汉光谷步行街前端的光谷世界城C座三楼，是由中国电影集团，武汉市电影发行放映公司，中侨（武汉）置业有限公司共同投资兴建的一座新概念豪华多厅影城。它的建成为日新月异的光谷地区增添更加时尚的文化韵味和光影色彩。','http://img2.mtime.com/ti/d/2008/13/200832713132.83050270_500.jpg','汉口');
+insert into cinema(name,address,introduce,environment,zone) values ('江汉环球电影城','武汉市武昌区司门口解放路464号原江汉剧场(户部巷对面)430060','江汉环球电影城位于武昌司门口假日乐园四楼，地处江城繁华商业区。影城定位为五星级主题影城，整体风格时尚典雅。影城经营面积5000㎡，设有6个国际标准电影放映厅（1号厅360 座、2号厅146座、3号厅131座、4号厅148座、5号厅139座、6号厅64座），可容纳观众近1000人','http://img2.mtime.com/ti/d/2008/37/2008910145552.36525606_500.jpg','武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('湖北剧院银兴电影城','武昌阅马场湖北剧院内430060','湖北剧院银兴电影城座落在武汉长江大桥与武珞路交汇处。外观构思以“黄鹤、鼓琴、歇山”为主题，是湖北省标志性文化建筑。','http://img2.mtime.com/ti/d/2007/47/20071120115544.88861637_500.jpg','武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('武汉万达国际影城','武汉市江汉区交通路1号万达商业广场C座二层','武汉万达国际电影城---国际级现代化多厅影城。该影城在位于中山大道的万达商业广场内，毗邻沃尔玛和大洋百货，给消费者一种全新的休闲消费模式——购物、娱乐、餐饮三位一体，全面升级娱乐文化。武汉万达国际电影城建筑面积7281平方米，目前拥有9块屏幕、可以同时容纳2089名观众。','http://img2.mtime.com/ti/d/2007/35/2007830153142.18255516_500.jpg','江汉');
+insert into cinema(name,address,introduce,environment,zone) values ('亚贸兴汇','武昌区武珞路628号亚贸广场购物中心6楼','座位很舒服，音响也够震撼',NULL,'武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('武汉银兴艺术影城','湖北省武汉市武昌区东湖路三官殿1号湖北省艺术馆1楼',NULL,NULL,'武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('洪山礼堂','武汉市武昌区洪山路81号',NULL,NULL,'武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('天汇影城','武汉市江汉路118号新世界时尚广场6楼',' 天汇影城位于武汉市江汉路新世界时尚广场6楼，是香港百老汇戏院有限公司与武汉市电影发行放映公司共同投资兴建而成。天汇影城是武汉市第一家拥有6个全台阶式电影厅的电影城，共有座席536座，所有座椅全部采用美国“爱温”最新一代座椅，椅背高度达41CM-44CM，相邻两座间的扶手均可收放自如，给人以最大舒适感。6影厅全部采用德国最新式放映镜头、声光效果超一流，让观众完全融入享受电影的全新境界。天汇影城运用星级酒店式服务理念，注重个性化消费、人性化服务，给观众最优质的自助空间。','http://img2.mtime.com/ti/d/2008/37/2008910105023.94494565_500.jpg','江汉');
+insert into cinema(name,address,introduce,environment,zone) values ('武昌电影院','湖北省武汉市武昌区解放路458号',NULL,NULL,'武昌');
+insert into cinema(name,address,introduce,environment,zone) values ('武汉新民众环艺影城','武汉市汉口中山大道608号新民众乐园4-5楼','武汉环艺影城成立于1997年，它位于武汉最繁华的消闲娱乐场所新民众乐园内，比邻江汉路步行街，身处黄金地段。环艺的宣传语是“顶级影院，顶级享受”——让顾客满意、让观众物超所值是环艺一贯的追求。自开业之初，武汉环艺影城就着眼于高规格的硬件设施建设，力求高品质的放映质量，以带给观众酣畅淋漓的影音感受。','http://img2.mtime.com/ti/d/2007/35/200783011713.97323196_500.jpg','汉口');
+
+insert into movie(name, category, preview) values('梅兰芳',15,'http://www.google.cn/movies/image?tbn=6eceb81916ac1e1f');
+insert into movie(name, category, preview) values(' 叶问',3,'http://www.google.cn/movies/image?tbn=7124bc9ae9944446');
+insert into movie(name, category, preview) values('女人不坏',13,'http://www.google.cn/movies/image?tbn=6fef6dc5593380ca');
+insert into movie(name, category, preview) values('爱呼2：爱情左右',13,'http://www.google.cn/movies/image?tbn=70c054ab53f8b5d2');
+insert into movie(name, category, preview) values('预见未来',6,'http://www.google.cn/movies/image?tbn=4db9403ffc18107b');
+insert into movie(name, category, preview) values('烈焰奇侠：黄金军团',5,'http://www.google.cn/movies/image?tbn=a8eb278c20c97639');
+insert into movie(name, category, preview) values('桃花运',13,'http://www.google.cn/movies/image?tbn=643cfc228b90b8ce');
+
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();
+insert into movieinfo(hwhen,cinema,movie,poster) values();

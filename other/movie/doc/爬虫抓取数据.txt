@@ -1,0 +1,10 @@
+1. 清空表
+truncate movieinfo
+truncate comment
+truncate movie
+2. 抓数据
+python getinfo.py
+3. 预处理
+python cinemaimg.py
+python movieimg.py
+python final.py

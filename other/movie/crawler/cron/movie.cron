@@ -1,0 +1,2 @@
+30 10 * * * /home/movie/cron/crawler.sh>>/home/movie/cron/crawler.log 2>>/home/movie/cron/crawler.log
+*/30 * * * * /home/movie/cron/movie.py>>/home/movie/cron/movie.log 2>>/home/movie/cron/movie.log

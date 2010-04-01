@@ -1,0 +1,61 @@
+/* ----------------------------------------------------------------------------------------------------------
+
+    This website template was downloaded from http://www.nuviotemplates.com - visit us for more templates
+
+---------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------
+HTML
+---------------------------------------------------------------------------------------------------------- */
+
+body {background:#5E6D70; color:#000;}
+
+a {color:#E6E9EA;}
+a:hover {color:#FFF;}
+
+fieldset {border:1px solid #AEB7BC;}
+legend {background:#C13B00; color:#FFF;}
+
+table.table-style01 th {background:#3A4446; color:#CAD0D3;}
+table.table-style01 th, table.table-style01 td {border:1px solid #76878C;}
+table.table-style01 tr.bg td {background:#A0ABB0;}
+
+ul.ul-style01 ul li {color:#3A4446;}
+
+/* ----------------------------------------------------------------------------------------------------------
+Layout
+---------------------------------------------------------------------------------------------------------- */
+
+#main {border-top:10px solid #8E2B00; background:#929FA4;}
+
+#header {background-color:#1B1D1E;}
+
+#logo {color:#FFF;}
+#logo span {color:#F80;}
+#logo a {color:#FFF;}
+
+#url {color:#526062;}
+#url a {color:#526062;}
+#url a:hover {color:#6A7C7E;}
+
+#slogan {background:#3A4446; color:#AEB6BD;}
+
+#content h1 {border-bottom:1px solid #5E6D70;}
+
+#content #perex {border-bottom:1px solid #AEB7BC;}           
+#content .boxes {border:1px solid #BCC3C8; background:#A0ABB0;}
+#content .input-submit {border:1px solid #424E4F; background:#424E4F; color:#FFF;}
+
+#aside {background:#526062;}
+
+#search {background:#C13B00;}
+#search #search-input {border:1px solid #FFF;}
+#search #search-submit {border:1px solid #8E2B00; background:#8E2B00; color:#FFF;}
+
+#nav li a {border-bottom:1px solid #76878C; color:#AEB6BD;}
+#nav li#nav-active a {color:#FFF;}
+#nav li a:hover {color:#FFF;}
+
+#footer {background:#3A4446; color:#AEB6BD;}
+#footer a {color:#AEB6BD;}
+#footer a:hover {color:#FFF;}
