@@ -23,7 +23,7 @@ def parseBlog(id,raw):
     else:
 	    print 'Error in blog catagory'
 	    print temp
-    temp=re.findall('nbw-blog[^"]*">(.*)[ ]*<div class="nbw-act',raw)
+    temp=re.findall('nbw-blog[^"]*">(.*)</div>[ ]*<div class="nbw-act',raw)
     if len(temp)==1:
 	    blog.append(temp[0].decode('gbk'))
     else:

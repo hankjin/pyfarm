@@ -1,0 +1,5 @@
+cron:
+- description: send sms to phone
+  url: /memo/chk
+  schedule: every 5 minutes
+  timezone: Asia/Shanghai
