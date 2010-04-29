@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    function beginEdit(edit){
+	if(edit){
+	    $("#memoConfView").hide();
+	    $("#memoConfEdit").show();
+	}
+	else{
+	    $("#memoConfView").show();
+	    $("#memoConfEdit").hide();
+
+	}
+    }
+</script>
+<div class="sidebar">
+    <ul>
+	<li id="memoConfView">
+	<h2>Memo Config:</h2>
+        <ul>
+	    <li><a href="#" onclick="return beginEdit(true);">Edit</a></li>
+	    <li>Fetion No:{{config.fetionNo}}</li>
+	    <li>Receive msg Phone:{{config.phoneNo}}</li>
+        </ul>
+	</li>
+
+	<li style="display:none" id="memoConfEdit">
+	<h2>Memo Config</h2>
+	<form method="post" action="/memo/config">
+	<ul>
+	    <li><a href="#" onclick="return beginEdit(false);">Cancel</a></li>
+	    <li>Fetion Phone No: 
+	    <input type="text" name="fetionNo" size="20" value="{{config.fetionNo}}">
+	    </li>
+	    <li> Fetion Password: 
+	    <input type="password" name="fetionPwd" size="20" value="{{config.fetionPwd}}">
+	    </li>
+	    <li>Receive Msg Phone:
+	    <input type="text" name="phoneNo" size="20" value="{{config.phoneNo}}">
+	    </li>
+	    <li>
+	    <input type="submit" value="Update">
+	    </li>
+	</ul>
+	</form>
+	</li>
+    </ul>
+</div>

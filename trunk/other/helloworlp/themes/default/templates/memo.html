@@ -1,0 +1,79 @@
+﻿{% extends "base.html" %}
+{% block title %} Memo - {{blog.title}} {% endblock %}
+{% block content%}
+<div class="ctop"></div>
+<div class="box">
+    <h3 style="background:#FFFF88">Add Repeat Memos</h3>
+    <form method="post" action="/memo/">
+	Memo: <input type="text" id="memoContent" name="content" size="55">
+	Tip Times: <select name="times">
+	    <option>1</option>
+	    <option>2</option>
+	    <option>3</option>
+	    <option selected>4</option>
+	    <option>5</option>
+	    <option>6</option>
+	    <option>7</option>
+	    <option>8</option>
+	</select>
+	<input type="submit" id="addMemo" value="Add Memo">
+    </form>
+</div>
+<div class="cbottom"></div>
+<div class="ctop"></div>
+<div class="box">
+    <h2 id='memohead' style="background:#8888FF">Memos:</h2>
+    <ul>
+	{% for memo in memos %}
+	<li><a href="/memo/{{memo.key.id}}">Del</a>
+	    {{memo.due|datetz:"Y-n-j H:i A"}} - {{memo.content}}</li>
+	{% endfor %}
+    </ul>
+</div>
+<div class="cbottom"></div>
+<div class="ctop"></div>
+<div class="box">
+    <h3 style="background:#FFFF88">Add A Todo:</h3>
+    <form method="post" action="/memo/">
+	Memo: <input type="text" name="content" size="80">
+	<br/>
+	Due Times: <select name="year">
+	    {% for year in years %}
+	    <option{% ifequal year defyear %} selected{%endifequal%}>
+	    {{ year }}</option>
+	    {% endfor %}
+	</select>-
+	<select name="month">
+	    {% for month in months %}
+	    <option{% ifequal month defmonth %} selected{%endifequal%}>
+	    {{ month }}</option>
+	    {% endfor %}
+	</select>-
+	<select name="day">
+	    {% for day in days %}
+	    <option{% ifequal day defday %} selected{%endifequal%}>
+	    {{ day }}</option>
+	    {% endfor %}
+	</select>
+	<select name="hour">
+	    {% for hour in hours %}
+	    <option{% ifequal hour defhour %} selected{%endifequal%}>
+	    {{ hour }}</option>
+	    {% endfor %}
+	</select>:
+	<select name="minute">
+	    {% for minute in minutes %}
+	    <option {% ifequal minute defminute %}selected{%endifequal%}>
+	    {{ minute }}</option>
+	    {% endfor %}
+	</select>
+	<input type="submit" id="addMemo" value="Add Memo">
+    </form>
+
+</div>
+
+<div class="cbottom"></div>
+	<div class="space"></div>
+</div> 
+{% include "memoconf.html" %}
+{% endblock %}
