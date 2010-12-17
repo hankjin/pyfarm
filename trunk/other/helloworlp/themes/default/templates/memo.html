@@ -3,37 +3,25 @@
 {% block content%}
 <div class="ctop"></div>
 <div class="box">
-    <h3 style="background:#FFFF88">Add Repeat Memos</h3>
-    <form method="post" action="/memo/">
-	Memo: <input type="text" id="memoContent" name="content" size="55">
-	Tip Times: <select name="times">
-	    <option>1</option>
-	    <option>2</option>
-	    <option>3</option>
-	    <option selected>4</option>
-	    <option>5</option>
-	    <option>6</option>
-	    <option>7</option>
-	    <option>8</option>
-	</select>
-	<input type="submit" id="addMemo" value="Add Memo">
-    </form>
-</div>
-<div class="cbottom"></div>
-<div class="ctop"></div>
-<div class="box">
     <h2 id='memohead' style="background:#8888FF">Memos:</h2>
     <ul>
 	{% for memo in memos %}
 	<li><a href="/memo/{{memo.key.id}}">Del</a>
-	    {{memo.due|datetz:"Y-n-j H:i A"}} - {{memo.content}}</li>
+	    {% ifequal memo.type 'normal' %}
+	        {{memo.due|datetz:"Y-n-j H:i A"}}
+	    {% else %}
+	        {{memo.type}} At {{memo.due|datetz:"H:i"}}
+	    {% endifequal %}
+	    - {{memo.desc}}
+	</li>
 	{% endfor %}
     </ul>
 </div>
 <div class="cbottom"></div>
+<!-- 1.add once -->
 <div class="ctop"></div>
 <div class="box">
-    <h3 style="background:#FFFF88">Add A Todo:</h3>
+    <h3 style="background:#FFFF88">Add Todo:</h3>
     <form method="post" action="/memo/">
 	Memo: <input type="text" name="content" size="80">
 	<br/>
@@ -73,6 +61,62 @@
 </div>
 
 <div class="cbottom"></div>
+<!-- 2.add normal -->
+<div class="ctop"></div>
+<div class="box">
+    <h3 style="background:#FFFF88">Add Memo</h3>
+    <form method="post" action="/memo/">
+	Memo: <input type="text" id="memoContent" name="content" size="55">
+	Tip Times: <select name="times">
+	    <option>1</option>
+	    <option>2</option>
+	    <option>3</option>
+	    <option selected>4</option>
+	    <option>5</option>
+	    <option>6</option>
+	    <option>7</option>
+	    <option>8</option>
+	</select>
+	<input type="submit" id="addMemo" value="Add Memo">
+    </form>
+</div>
+<div class="cbottom"></div>
+
+<!-- 3. add daily -->
+<div class="ctop"></div>
+<div class="box">
+    <h3 style="background:#FFFF88">Add Daily Tip</h3>
+    <form method="post" action="/memo/daily">
+	Memo:<input type="text" name="dailyContent" size="55"/>
+	Hour:<select name="dailyHour">
+	    {% for hour in hours %}
+	    <option{% ifequal hour defhour %} selected{%endifequal%}>
+	    {{ hour }}</option>
+	    {% endfor %}
+	</select>:00
+
+	<input type="submit" id="addMemo" value="Add Memo">
+    </form>
+</div>
+<div class="cbottom"></div>
+<!-- end of daily -->
+<!-- 4. add random -->
+<div class="ctop"></div>
+<div class="box">
+    <h3 style="background:#FFFF88">Add Random Tips</h3>
+    <form method="post" action="/memo/random">
+	<textarea rows="12" cols="75" name="randomContent"></textarea><br/>
+	Hour:<select name="randomHour">
+	    {% for hour in hours %}
+	    <option{% ifequal hour defhour %} selected{%endifequal%}>
+	    {{ hour }}</option>
+	    {% endfor %}
+	</select>:00
+	<input type="submit" id="addMemo" value="Add Memo">
+    </form>
+</div>
+<div class="cbottom"></div>
+
 	<div class="space"></div>
 </div> 
 {% include "memoconf.html" %}
