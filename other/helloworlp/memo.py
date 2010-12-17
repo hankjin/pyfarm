@@ -127,10 +127,7 @@ class MemoChecker(BaseRequestHandler):
     def post(self):
 	pass
     def informUser(self,memos):
-	try:
-	    self.informPhone(memos)
-	except:
-	    self.informMail(memos)
+	self.informMail(memos)
     def informPhone(self,memos):
 	config=MemoConfig.getConfig()
 	phone=PyFetion(config['fetionNo'],config['fetionPwd'],'HTTP')
@@ -139,7 +136,7 @@ class MemoChecker(BaseRequestHandler):
 	self.response.out.write('Fetioned')
     def informMail(self,memos):
 	config=MemoConfig.getConfig()
-	mail.send_mail(sender=str(users.get_current_user()),
+	mail.send_mail(sender=users.get_current_user().email(), 
 		to='%s@139.com' % config['phoneNo'],
 		subject='Memo',
 		body=memos)
