@@ -37,46 +37,57 @@ rules=[timedelta(hours=+24),
 	timedelta(days=+2)]
 class Memo(db.Model):
     due=db.DateTimeProperty()
-    content=db.StringProperty()
+    type=db.StringProperty()
+    desc=db.StringProperty(multiline=True)
+    content=db.TextProperty()
     @classmethod
-    def add(cls, content, times):
-	now=datetime.utcnow()
-	for i in range(times):
-	    memo=Memo(due=now+rules[i], content=content)
+    def add(cls, memos):
+	descLen=100
+	for memo in memos:
+	    if len(memo.content)>descLen:
+		memo.desc=memo.content[:descLen]+'...'
+	    else:
+		memo.desc=memo.content
 	    db.Model.put(memo)
+    @classmethod
+    def getMemos(cls, type):
+	return Memo.filter(type=type)
+    @classmethod
+    def rm(cls,memos):
+	for memo in memos:
+	    memo.delete()
     @classmethod
     def getTodos(cls):
 	now=datetime.utcnow()
 	memos=Memo.all().filter('due <',now)
 	return memos
+
     @classmethod
-    def rm(cls,memos):
-	for memo in memos:
-	    memo.delete()
-
+    def genNormal(cls, content, times):
+    	memos=[]
+	now=datetime.utcnow()
+	for i in range(times):
+	    memo=Memo(type='normal', 
+		    due=now+rules[i], 
+		    content=content)
+	    memos.append(memo)
+	return memos
+    @classmethod
+    def genDaily(cls, content, hour):
+	now=datetime(2000,1,1,0,0)
+	memo=Memo(type='daily',
+		due=now+timedelta(hours=hour-g_blog.timedelta),
+		content=content)
+	return memo
+    @classmethod
+    def genRandom(cls, content, hour):
+	now=datetime.utcnow()
+	today=datetime(now.year,now.month,now.day,0,0)
+	memo=Memo(type='random',
+		due=today+timedelta(hours=hour-g_blog.timedelta),
+		content=content)
+	return memo
 class MemoHandler(BaseRequestHandler):
-    def get(self,id):
-	if not id=='': #delete a memo
-	    id=int(id)
-	    memo=Memo.get_by_id(id)
-	    memo.delete()
-        self.showMemos()
-    def post(self,id=-1):
-	content=self.param('content')
-	times=self.param('times')
-	if not times=='':
-	    Memo.add(content, int(times))
-	else:
-	    memo=Memo(content=content)
-	    year=int(self.param('year'))
-	    month=int(self.param('month'))
-	    day=int(self.param('day'))
-	    hour=int(self.param('hour'))
-	    minute=int(self.param('minute'))
-	    memo.due=datetime(year,month,day,hour,minute)+timedelta(hours=-g_blog.timedelta)
-
-	    db.Model.put(memo)
-	self.showMemos()
     def showMemos(self):
 	config=MemoConfig.getConfig()
 	memos=Memo.all().order('due')
@@ -92,6 +103,43 @@ class MemoHandler(BaseRequestHandler):
 	    'defyear':now.year,'defmonth':now.month,'defday':now.day,
 	    'defhour':now.hour,'defminute':now.minute/5*5})
 
+class DailyMemoHandler(MemoHandler):
+    def post(self):
+	content=self.param('dailyContent')
+	hour=int(self.param('dailyHour'))
+	Memo.add([Memo.genDaily(content, hour)])
+	self.showMemos()
+class RandomMemoHandler(MemoHandler):
+    def post(self):
+	content=self.param('randomContent')
+	hour=int(self.param('randomHour'))
+	memo=Memo.genRandom(content, hour)
+	Memo.add([Memo.genRandom(content, hour)])
+	self.showMemos()
+	
+class NormalMemoHandler(MemoHandler):
+    def get(self,id):
+	if not id=='': #delete a memo
+	    id=int(id)
+	    memo=Memo.get_by_id(id)
+	    memo.delete()
+        self.showMemos()
+    def post(self,id=-1):
+	content=self.param('content')
+	times=self.param('times')
+	if not times=='': #1. a todo
+	    Memo.add( Memo.genNormal(content, int(times)) )
+	else: #2. memo
+	    memo=Memo(type='normal',content=content)
+	    year=int(self.param('year'))
+	    month=int(self.param('month'))
+	    day=int(self.param('day'))
+	    hour=int(self.param('hour'))
+	    minute=int(self.param('minute'))
+	    memo.due=datetime(year,month,day,hour,minute)+timedelta(hours=-g_blog.timedelta)
+	    Memo.add([memo])
+	self.showMemos()
+    
 class MemoConfig(BaseRequestHandler):
     @classmethod
     def setConfig(cls,fetionNo, fetionPwd, phoneNo):
@@ -116,12 +164,25 @@ class MemoConfig(BaseRequestHandler):
 class MemoChecker(BaseRequestHandler):
     def get(self):
 	memos=Memo.getTodos()
+	now=datetime.utcnow()
 	if memos.count()>0:
 	    body=''
 	    for memo in memos:
-		body+=memo.content+'\n'
+		if memo.type=='daily' or memo.type=='random':
+		    #happen at same hour and 0-5 min
+		    if memo.due.time.hour==now.hour and now-minute-memo.due.minute<=5:
+			if memo.type=='daily':
+			    body+=memo.content+'\n'
+			elif memo.type=='random':
+			    tips=memo.content.split('\n')
+			    index=(now-memo.due).days #days
+			    if len(tips)>0:
+				body += tips[index%len(tips)]
+		elif memo.type=='normal':
+		    body+=memo.content+'\n'
 	    self.informUser(body)
-	    Memo.rm(memos)
+	    if memo.type=='normal':
+		Memo.rm(memos)
 	else:
 	    self.response.out.write('no memo')
     def post(self):
@@ -135,8 +196,9 @@ class MemoChecker(BaseRequestHandler):
 	phone.send_sms(memos,config['phoneNo'])
 	self.response.out.write('Fetioned')
     def informMail(self,memos):
+	memos+=users.get_current_user().email()
 	config=MemoConfig.getConfig()
-	mail.send_mail(sender=users.get_current_user().email(), 
+	mail.send_mail(sender='jindongh@gmail.com',
 		to='%s@139.com' % config['phoneNo'],
 		subject='Memo',
 		body=memos)
@@ -148,7 +210,9 @@ def main():
 					[
 					('/memo/config',MemoConfig),
 					('/memo/chk', MemoChecker),
-					('/memo/(.*)',MemoHandler),
+					('/memo/daily',DailyMemoHandler),
+					('/memo/random',RandomMemoHandler),
+					('/memo/(.*)',NormalMemoHandler),
 					 ],debug=True)
 	wsgiref.handlers.CGIHandler().run(application)
 
