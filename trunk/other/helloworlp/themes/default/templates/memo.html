@@ -7,7 +7,7 @@
     <ul>
 	{% for memo in memos %}
 	<li><a href="/memo/{{memo.key.id}}">Del</a>
-	    {% ifequal memo.type 'normal' %}
+	    {% ifequal memo.type 'znormal' %}
 	        {{memo.due|datetz:"Y-n-j H:i A"}}
 	    {% else %}
 	        {{memo.type}} At {{memo.due|datetz:"H:i"}}

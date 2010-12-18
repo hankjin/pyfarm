@@ -1,4 +1,7 @@
 <script type="text/javascript">
+    $(document).ready(function(){
+	    $(".fetion").hide();
+	    });
     function beginEdit(edit){
 	if(edit){
 	    $("#memoConfView").hide();
@@ -17,8 +20,10 @@
 	<h2>Memo Config:</h2>
         <ul>
 	    <li><a href="#" onclick="return beginEdit(true);">Edit</a></li>
-	    <li>Fetion No:{{config.fetionNo}}</li>
-	    <li>Receive msg Phone:{{config.phoneNo}}</li>
+	    <li class="fetion">Fetion No:{{config.fetionNo}}</li>
+	    <li class="fetion">Receive msg Phone:{{config.phoneNo}}</li>
+	    <li class="email">Sender:{{config.sender}}</li>
+	    <li class="email">Receiver:{{config.receiver}}</li>
         </ul>
 	</li>
 
@@ -27,14 +32,20 @@
 	<form method="post" action="/memo/config">
 	<ul>
 	    <li><a href="#" onclick="return beginEdit(false);">Cancel</a></li>
-	    <li>Fetion Phone No: 
+	    <li class="fetion">Fetion Phone No: 
 	    <input type="text" name="fetionNo" size="20" value="{{config.fetionNo}}">
 	    </li>
-	    <li> Fetion Password: 
+	    <li class="fetion">Fetion Password: 
 	    <input type="password" name="fetionPwd" size="20" value="{{config.fetionPwd}}">
 	    </li>
-	    <li>Receive Msg Phone:
+	    <li  class="fetion">Receive Msg Phone:
 	    <input type="text" name="phoneNo" size="20" value="{{config.phoneNo}}">
+	    </li>
+	    <li class="email">Sender Email:
+	    <input type="text" name="sender" size="20" value="{{config.sender}}">
+	    </li>
+	    <li class="email">Receiver Email:
+	    <input type="text" name="receiver" size="20" value="{{config.receiver}}">
 	    </li>
 	    <li>
 	    <input type="submit" value="Update">
