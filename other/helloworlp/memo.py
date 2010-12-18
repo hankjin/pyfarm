@@ -90,7 +90,7 @@ class Memo(db.Model):
 class MemoHandler(BaseRequestHandler):
     def showMemos(self):
 	config=MemoConfig.getConfig()
-	memos=Memo.all().order('due')
+	memos=Memo.all().order('type').order('due')
 	now=datetime.utcnow()+timedelta(minutes=+(60*g_blog.timedelta+5))
 	years=range(now.year,now.year+3)
 	months=range(1,12+1)
@@ -139,26 +139,36 @@ class NormalMemoHandler(MemoHandler):
 	    memo.due=datetime(year,month,day,hour,minute)+timedelta(hours=-g_blog.timedelta)
 	    Memo.add([memo])
 	self.showMemos()
-    
+'''
+Memo Config Section
+'''
 class MemoConfig(BaseRequestHandler):
     @classmethod
-    def setConfig(cls,fetionNo, fetionPwd, phoneNo):
+    def setConfig(cls,fetionNo, fetionPwd, phoneNo,sender,receiver):
 	OptionSet.setValue('fetionNo',fetionNo)
 	OptionSet.setValue('fetionPwd',fetionPwd)
 	OptionSet.setValue('phoneNo',phoneNo)
+	OptionSet.setValue('sender',sender)
+	OptionSet.setValue('receiver',receiver)
 
     @classmethod
     def getConfig(cls):
 	return {'fetionNo': OptionSet.getValue('fetionNo'),
 		'fetionPwd': OptionSet.getValue('fetionPwd'),
-		'phoneNo': OptionSet.getValue('phoneNo')}
+		'phoneNo': OptionSet.getValue('phoneNo'),
+		'sender': OptionSet.getValue('sender'),
+		'receiver': OptionSet.getValue('receiver')
+		}
+
     def get(self):
 	pass
     def post(self):
 	fetionNo=self.param("fetionNo")
 	fetionPwd=self.param("fetionPwd")
 	phoneNo=self.param("phoneNo")
-	MemoConfig.setConfig(fetionNo, fetionPwd, phoneNo)
+	sender=self.param('sender')
+	receiver=self.param('receiver')
+	MemoConfig.setConfig(fetionNo, fetionPwd, phoneNo, sender, receiver)
 	self.redirect("/memo/")
 
 class MemoChecker(BaseRequestHandler):
@@ -170,7 +180,7 @@ class MemoChecker(BaseRequestHandler):
 	    for memo in memos:
 		if memo.type=='daily' or memo.type=='random':
 		    #happen at same hour and 0-5 min
-		    if memo.due.time.hour==now.hour and now-minute-memo.due.minute<=5:
+		    if memo.due.hour==now.hour and now.minute<=5:
 			if memo.type=='daily':
 			    body+=memo.content+'\n'
 			elif memo.type=='random':
@@ -188,7 +198,8 @@ class MemoChecker(BaseRequestHandler):
     def post(self):
 	pass
     def informUser(self,memos):
-	self.informMail(memos)
+	if len(memos)>0:
+	    self.informMail(memos)
     def informPhone(self,memos):
 	config=MemoConfig.getConfig()
 	phone=PyFetion(config['fetionNo'],config['fetionPwd'],'HTTP')
@@ -196,13 +207,12 @@ class MemoChecker(BaseRequestHandler):
 	phone.send_sms(memos,config['phoneNo'])
 	self.response.out.write('Fetioned')
     def informMail(self,memos):
-	memos+=users.get_current_user().email()
 	config=MemoConfig.getConfig()
-	mail.send_mail(sender='jindongh@gmail.com',
-		to='%s@139.com' % config['phoneNo'],
-		subject='Memo',
+	mail.send_mail(sender=config['sender'],
+		to=config['receiver'],
+		subject='Memo from helloworlp',
 		body=memos)
-	self.response.out.write('Emailed')
+	self.response.out.write('mail send')
 
 def main():
 	webapp.template.register_template_library('filter')
