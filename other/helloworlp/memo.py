@@ -1,5 +1,6 @@
 #encoding: utf-8
 import cgi, os, sys, traceback
+import random
 import wsgiref.handlers
 ##os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 ##from django.conf import settings
@@ -180,12 +181,13 @@ class MemoChecker(BaseRequestHandler):
 	    for memo in memos:
 		if memo.type=='daily' or memo.type=='random':
 		    #happen at same hour and 0-5 min
-		    if memo.due.hour==now.hour and now.minute<=5:
+		    if memo.due.hour==now.hour and now.minute<5:
 			if memo.type=='daily':
 			    body+=memo.content+'\n'
 			elif memo.type=='random':
 			    tips=memo.content.split('\n')
-			    index=(now-memo.due).days #days
+			    index=random.randint(0,len(tips)-1)
+                            #(now-memo.due).days #days
 			    if len(tips)>0:
 				body += tips[index%len(tips)]
 		elif memo.type=='normal':
