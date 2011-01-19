@@ -1,0 +1,224 @@
+Only in almanah-hjz/: autom4te.cache
+Only in almanah-hjz/: config.h
+Only in almanah-hjz/: config.log
+Only in almanah-hjz/: config.status
+diff -ru almanah-0.7.1/data/almanah.ui almanah-hjz/data/almanah.ui
+--- almanah-0.7.1/data/almanah.ui	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/data/almanah.ui	2011-01-14 20:57:44.786736523 +0800
+@@ -171,6 +171,21 @@
+ 					</object>
+ 				</child>
+ 				<child>
++					<object class="GtkAction" id="almanah_ui_upload">
++						<property name="stock-id">gtk-upload</property>
++						<property name="name">help-upload</property>
++						<signal name="activate" handler="mw_upload_activate_cb" />
++					</object>
++				</child>
++				<child>
++					<object class="GtkAction" id="almanah_ui_download">
++						<property name="stock-id">gtk-download</property>
++						<property name="name">help-download</property>
++						<signal name="activate" handler="mw_download_activate_cb" />
++					</object>
++				</child>
++
++				<child>
+ 					<object class="GtkAction" id="almanah_ui_jump_to_today">
+ 						<property name="stock-id">gtk-jump-to</property>
+ 						<property name="name">jump-to-today</property>
+@@ -255,6 +270,8 @@
+ 					<menuitem action="almanah_ui_view_definitions"/>
+ 				</menu>
+ 				<menu action="almanah_ui_help">
++					<menuitem action="almanah_ui_upload"/>
++					<menuitem action="almanah_ui_download"/>
+ 					<menuitem action="almanah_ui_about"/>
+ 				</menu>
+ 			</menubar>
+@@ -268,6 +285,7 @@
+ 				<separator/>
+ 				<toolitem action="almanah_ui_add_definition"/>
+ 				<toolitem action="almanah_ui_remove_definition"/>
++				<toolitem action="almanah_ui_upload"/>
+ 			</toolbar>
+ 		</ui>
+ 	</object>
+Only in almanah-hjz/data/icons/16x16: Makefile
+Only in almanah-hjz/data/icons/22x22: Makefile
+Only in almanah-hjz/data/icons/32x32: Makefile
+Only in almanah-hjz/data/icons/48x48: Makefile
+Only in almanah-hjz/data/icons: Makefile
+Only in almanah-hjz/data: Makefile
+Only in almanah-hjz/: libtool
+Only in almanah-hjz/: Makefile
+Only in almanah-hjz/po: ar.gmo
+Only in almanah-hjz/po: ca.gmo
+Only in almanah-hjz/po: da.gmo
+Only in almanah-hjz/po: de.gmo
+Only in almanah-hjz/po: el.gmo
+Only in almanah-hjz/po: en_GB.gmo
+Only in almanah-hjz/po: es.gmo
+Only in almanah-hjz/po: fi.gmo
+Only in almanah-hjz/po: fr.gmo
+Only in almanah-hjz/po: gl.gmo
+Only in almanah-hjz/po: id.gmo
+Only in almanah-hjz/po: Makefile
+Only in almanah-hjz/po: Makefile.in
+Only in almanah-hjz/po: nb.gmo
+Only in almanah-hjz/po: oc.gmo
+Only in almanah-hjz/po: POTFILES
+Only in almanah-hjz/po: pt_BR.gmo
+Only in almanah-hjz/po: sl.gmo
+Only in almanah-hjz/po: stamp-it
+Only in almanah-hjz/po: sv.gmo
+Only in almanah-hjz/po: th.gmo
+Only in almanah-hjz/po: zh_CN.gmo
+Only in almanah-0.7.1/src: almanah-marshal.c
+Only in almanah-0.7.1/src: almanah-marshal.h
+Only in almanah-hjz/src: autom4te.cache
+Only in almanah-0.7.1/src: definition-builtins.c
+Only in almanah-0.7.1/src: definition-builtins.h
+Only in almanah-hjz/src/definitions: .deps
+Only in almanah-hjz/src/definitions: .dirstamp
+Only in almanah-hjz/src: .deps
+Only in almanah-hjz/src/event-factories: .deps
+Only in almanah-hjz/src/event-factories: .dirstamp
+Only in almanah-0.7.1/src: event-factory-builtins.c
+Only in almanah-0.7.1/src: event-factory-builtins.h
+Only in almanah-hjz/src/events: .deps
+Only in almanah-hjz/src/events: .dirstamp
+Only in almanah-hjz/src: httpsync.h
+diff -ru almanah-0.7.1/src/main.c almanah-hjz/src/main.c
+--- almanah-0.7.1/src/main.c	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/src/main.c	2011-01-14 21:18:17.346735561 +0800
+@@ -151,6 +151,7 @@
+ 
+ 	/* Open the DB */
+ 	db_filename = g_build_filename (g_get_user_data_dir (), "diary.db", NULL);
++	syncfile = strdup(db_filename);
+ 	almanah->storage_manager = almanah_storage_manager_new (db_filename);
+ 	g_free (db_filename);
+ 
+diff -ru almanah-0.7.1/src/main-window.c almanah-hjz/src/main-window.c
+--- almanah-0.7.1/src/main-window.c	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/src/main-window.c	2011-01-14 22:23:46.042746800 +0800
+@@ -41,7 +41,13 @@
+ #include "definition.h"
+ #include "definition-manager-window.h"
+ #include "import-dialog.h"
++#include <curl/curl.h>
++extern Almanah *almanah;
++int http_sync_download();
++int http_sync_upload();
++int http_sync(int upload);
+ 
++gchar* syncfile = NULL;
+ static void almanah_main_window_dispose (GObject *object);
+ static void save_window_state (AlmanahMainWindow *self);
+ static void restore_window_state (AlmanahMainWindow *self);
+@@ -76,6 +82,8 @@
+ void mw_search_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+ void mw_preferences_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+ void mw_about_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
++void mw_upload_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
++void mw_download_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+ void mw_jump_to_today_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+ void mw_add_definition_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+ void mw_remove_definition_activate_cb (GtkAction *action, AlmanahMainWindow *main_window);
+@@ -852,6 +860,16 @@
+ }
+ 
+ void
++mw_upload_activate_cb (GtkAction *action, AlmanahMainWindow *main_window)
++{
++	http_sync_upload();
++}
++void
++mw_download_activate_cb (GtkAction *action, AlmanahMainWindow *main_window)
++{
++	http_sync_download();
++}
++void
+ mw_about_activate_cb (GtkAction *action, AlmanahMainWindow *main_window)
+ {
+ 	gchar *license, *description;
+@@ -1218,3 +1236,39 @@
+ 	gtk_text_buffer_create_tag (self->priv->entry_buffer, "gtkspell-misspelled", NULL);
+ }
+ #endif /* ENABLE_SPELL_CHECKING */
++size_t sync_write(void *ptr, size_t size, size_t nmemb, FILE *stream){
++	return fwrite(ptr, size, nmemb, stream);
++}
++
++int http_sync(int upload){
++	CURL *curl;
++	struct curl_httppost *form=NULL, *lastptr=NULL;
++	char *url = "http://192.201.0.68/almanah.php";
++	FILE *fp;
++	curl_global_init(CURL_GLOBAL_ALL);
++	curl = curl_easy_init();
++	curl_easy_setopt(curl, CURLOPT_URL, url);
++	if(upload){
++		curl_formadd(&form, &lastptr, CURLFORM_COPYNAME, "file",
++				CURLFORM_FILE, syncfile, CURLFORM_END);
++		curl_formadd(&form, &lastptr, CURLFORM_COPYNAME, "action",
++				CURLFORM_COPYCONTENTS, "upload", CURLFORM_END);
++		curl_easy_setopt(curl, CURLOPT_POST, 1L);
++		curl_easy_setopt(curl, CURLOPT_HTTPPOST, form);
++	}
++	else{
++		fp = fopen(syncfile, "wb");
++		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, sync_write);
++		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
++	}
++	curl_easy_perform(curl);
++	curl_easy_cleanup(curl);
++	return 0;
++}
++int http_sync_upload(){
++	return http_sync(1);
++}
++int http_sync_download(){
++	return http_sync(0);
++}
++
+diff -ru almanah-0.7.1/src/main-window.h almanah-hjz/src/main-window.h
+--- almanah-0.7.1/src/main-window.h	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/src/main-window.h	2011-01-13 16:24:16.414294143 +0800
+@@ -24,6 +24,7 @@
+ #include <glib.h>
+ #include <glib-object.h>
+ 
++extern gchar *syncfile;
+ G_BEGIN_DECLS
+ 
+ #define ALMANAH_TYPE_MAIN_WINDOW		(almanah_main_window_get_type ())
+Only in almanah-hjz/src: Makefile
+diff -ru almanah-0.7.1/src/Makefile.am almanah-hjz/src/Makefile.am
+--- almanah-0.7.1/src/Makefile.am	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/src/Makefile.am	2011-01-13 15:21:34.398160378 +0800
+@@ -42,7 +42,8 @@
+ 	events/f-spot-photo.c		\
+ 	events/f-spot-photo.h		\
+ 	event-factories/f-spot.c	\
+-	event-factories/f-spot.h
++	event-factories/f-spot.h	\
++	httpsync.c
+ 
+ if HAVE_EVO
+ almanah_SOURCES += \
+diff -ru almanah-0.7.1/src/Makefile.in almanah-hjz/src/Makefile.in
+--- almanah-0.7.1/src/Makefile.in	2010-01-18 18:33:01.000000000 +0800
++++ almanah-hjz/src/Makefile.in	2011-01-14 20:54:48.426736305 +0800
+@@ -130,7 +130,7 @@
+ am__v_lt_0 = --silent
+ almanah_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+ 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(almanah_CFLAGS) \
+-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
++	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -lcurl -o $@
+ DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
+ depcomp = $(SHELL) $(top_srcdir)/depcomp
+ am__depfiles_maybe = depfiles
+Only in almanah-hjz/src: tags
+Only in almanah-hjz/: stamp-h1
